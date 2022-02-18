@@ -1,5 +1,5 @@
 # Pen and Paper overlay for OBS
-Small overlay for playing Pen and Paper games with OBS.
+Small overlay for displaying Pen and Paper character info with OBS.
 
 
 ## How to include
