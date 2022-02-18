@@ -1,0 +1,82 @@
+<head>
+    <script src="https://kit.fontawesome.com/3e15b1f6e5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bar" onclick="hideCard()">
+        <i class="fa-solid fa-hat-wizard"></i>
+        <h1>Boris Lindor</h1>
+
+        <div style="margin-left: auto;">
+            <i class="fas fa-dice-d20"></i>
+            <i class="fas fa-dice-d20"></i>
+            <i class="fas fa-dice-d20"></i>
+        </div>
+
+    </div>
+    <div id="card" class="card" style="display:none">
+        <div id="bar-container">
+            <div style="display: flex; align-items: center;">
+                <button onclick="health('lpBar')">
+                    <i class="fa-solid fa-plus button"></i>
+                </button>
+                <progress class="lp" id="lpBar" value="17" max="17" onclick="damage('lpBar')"></progress>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <button onclick="health('apBar')">
+                    <i class="fa-solid fa-plus button"></i>
+                </button>
+                <progress class="ap" id="apBar" value="18" max="18" onclick="damage('apBar')"></progress>
+            </div>
+        </div>
+        <div id="stat-container" style="display:none">
+            <div class="pair">
+                <div class="stat">ST</div>
+                <div class="value">36</div>
+            </div>
+            <div class="pair">
+                <div class="stat">GS</div>
+                <div class="value">86</div>
+            </div>
+            <div class="pair">
+                <div class="stat">GW</div>
+                <div class="value">35</div>
+            </div>
+            <div class="pair">
+                <div class="stat">KO</div>
+                <div class="value">84</div>
+            </div>           
+            <div class="pair">
+                <div class="stat">IN</div>
+                <div class="value">94</div>
+            </div>
+            <div class="pair">
+                <div class="stat">ZT</div>
+                <div class="value">96</div>
+            </div>
+            <div class="pair">
+                <div class="stat">AU</div>
+                <div class="value">46</div>
+            </div>
+            <div class="pair">
+                <div class="stat">PA</div>
+                <div class="value">58</div>
+            </div>
+            <div class="pair">
+                <div class="stat">WK</div>
+                <div class="value">59</div>
+            </div>
+            <div class="pair">
+                <div class="stat">B</div>
+                <div class="value">20</div>
+            </div>
+
+        </div>
+        <button id="more" class="more" onclick="showStatContainer()">
+            <i id="moreIcon"class="fa-solid fa-angle-right button"></i>
+        </button>
+    </div>
+</body>
