@@ -132,7 +132,9 @@ progress::after {
 }
 
 .pair {
+    margin: 5px;
     display : inline-flex;
+    align-items: center;
 }
 .value {
     color:#ffffff;          
