@@ -34,11 +34,13 @@ h1 {
 i {
     background: linear-gradient(var(--accent), var(--accentLower));
     margin: 5px;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 i.button{
     background: linear-gradient(var(--primaryText), var(--secondaryText));
+    background-clip: text;
     -webkit-background-clip: text;
     font-size: 30px;
 }
