@@ -75,8 +75,7 @@ progress {
 
 progress.lp::-webkit-progress-value {
     border-radius: var(--radius);
-    background:
-        
+    background:       
         linear-gradient(hsl(0, 59%, 41%), hsl(0, 59%, 21%));
 }
 
@@ -88,7 +87,6 @@ progress.ap::-webkit-progress-value {
 
 progress.lp::-webkit-progress-bar {
     border-radius: var(--radius);
-    background: linear-gradient(hsl(0, 59%, 21%), hsl(0, 59%, 1%));
     background:
         repeating-linear-gradient(to right, transparent 0px calc(var(--lpLine) - 1px), var(--background) calc(var(--lpLine) - 1px) var(--lpLine)),
         linear-gradient(var(--background), var(--card));
@@ -96,7 +94,6 @@ progress.lp::-webkit-progress-bar {
 
 progress.ap::-webkit-progress-bar {
     border-radius: var(--radius);
-    background: linear-gradient(hsl(43, 74%, 29%), hsl(43, 74%, 9%));
     background:
         repeating-linear-gradient(to right, transparent 0px calc(var(--apLine) - 1px), var(--background) calc(var(--apLine) - 1px) var(--apLine)),
         linear-gradient(var(--background), var(--card));
