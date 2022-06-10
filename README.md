@@ -10,3 +10,4 @@ Small overlay for playing Pen and Paper games with OBS.
 ## How to configure
 * Change constants in properties.js
 * Change colours at the top of style.css
+* Possible icons available on https://fontawesome.com/search?m=free&s=solid
