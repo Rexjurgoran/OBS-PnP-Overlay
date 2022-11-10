@@ -6,6 +6,7 @@ function start() {
     loadConfig();
 
     document.getElementById("class-icon").innerHTML = config.classIcon;
+    $("select[name='icon']")[0].value = config.classIcon;
 
     document.getElementById("character-name").innerText = config.characterName;
     $("input[name='characterName']")[0].value = config.characterName;
@@ -51,6 +52,7 @@ function saveSettings() {
     config.hpMax = $("input[name='hpMax']")[0].value;
     config.apMax = $("input[name='apMax']")[0].value;
     config.level = $("input[name='level']")[0].value;
+    config.classIcon = $("select[name='icon']")[0].value;
     const statSettings = $("#stat-settings").children();
     for (let stat of config.stats) {
         for (let setting of statSettings) {

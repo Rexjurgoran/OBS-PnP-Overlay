@@ -3,7 +3,7 @@
     --menuBar: rgb(24, 24, 24);
     --menuBarClear: rgb(24, 24, 24, .5);
     --card: rgb(40, 40, 40);
-    --cardClear: rgb(40,40,40,.5);
+    --cardClear: rgb(40, 40, 40, .5);
     --primaryText: #ffffff;
     --secondaryText: #b3b3b3;
     --radius: 15px;
@@ -24,7 +24,7 @@ html * {
     font-family: Arial;
 }
 
-hr{
+hr {
     margin-top: 0;
     margin-bottom: 0;
     margin-left: 0.15em;
@@ -82,11 +82,13 @@ button.text {
     background: linear-gradient(var(--menuBar), var(--background));
     border-radius: var(--radius);
 }
+
 button.active {
     background: var(--menuBarClear);
     border: solid 0px;
     border-radius: var(--radius);
 }
+
 progress {
     position: relative;
     border: 0.5px var(--menuBar);
@@ -160,7 +162,7 @@ section {
     border-bottom-right-radius: var(--radius);
 }
 
-section#settings{
+section#settings {
     display: flex;
     flex-direction: column;
 }
@@ -251,6 +253,33 @@ input:focus-visible {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    border: solid 0px;
+    border-radius: var(--radius);
+}
+
+select {
+    font-family: "Font Awesome 6 Free", "Arial";
+    font-weight: 900;
+    background: linear-gradient(var(--accent), var(--accentLower));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: solid 0px;
+    cursor: pointer;
+}
+
+select:focus-visible{
+    outline: 0;
+}
+select option {
+    font-family: "Font Awesome 6 Free", "Arial";
+    font-weight: 900;
+    background: linear-gradient(var(--accent), var(--accentLower));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: solid 0px;
+    cursor: pointer;
     border: solid 0px;
     border-radius: var(--radius);
 }
