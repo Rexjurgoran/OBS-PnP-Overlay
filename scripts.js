@@ -1,49 +1,119 @@
+const CONFIG_NAME = "config";
+
 window.onload = start();
 
-function start(){
-    document.getElementById("character-name").innerText = characterName;   
-    document.getElementById("class-icon").innerHTML = classIcon;
-    document.getElementById("hp-bar").value = hpCurrent;
-    document.getElementById("hp-bar").max = hpMax;
-    document.getElementById("ap-bar").value = apCurrent;
-    document.getElementById("ap-bar").max = apMax;
+function start() {
+    loadConfig();
+
+    document.getElementById("class-icon").innerHTML = config.classIcon;
+
+    document.getElementById("character-name").innerText = config.characterName;
+    $("input[name='characterName']")[0].value = config.characterName;
+
+    document.getElementById("hp-bar").value = config.hpCurrent;
+    document.getElementById("hp-bar").max = config.hpMax;
+    $("input[name='hpMax']")[0].value = config.hpMax;
+
+    document.getElementById("ap-bar").value = config.apCurrent;
+    document.getElementById("ap-bar").max = config.apMax;
+    $("input[name='apMax']")[0].value = config.apMax;
+
+    document.getElementById("level-number").innerText = config.level;
+    $("input[name='level']")[0].value = config.level;
 
     let statContainer = "";
-    for(const pair of stats){
-        statContainer = statContainer + "<div class='pair'><div class='stat'>"+pair.stat+"</div><div class='value'>"+pair.value+"</div></div>"
+    let settingsContainer = "";
+    for (const pair of config.stats) {
+        statContainer = statContainer + "<div class='pair'><div class='stat'>" + pair.stat + "</div><div class='value'>" + pair.value + "</div></div>"
+        settingsContainer = settingsContainer +
+            "<div class='pair'>" +
+            "<label for='" + pair.stat + "'>" + pair.stat + "</label>" +
+            "<input type='text' name='" + pair.stat + "' value='" + pair.value + "'/>" +
+            "</div>";
     }
     document.getElementById("stat-container").innerHTML = statContainer;
+    document.getElementById("stat-settings").innerHTML = settingsContainer;
 
-    let levelContainer = "";
-    for(let i = 0; i < level; i++) {
-        levelContainer = levelContainer + "<i class='fas fa-dice-d20'></i>";
-    }
-    document.getElementById("level").innerHTML = levelContainer;
 }
-
-function hideCard() {
-    if (document.getElementById("card").style.display == "none") {
-        $("#card").slideDown();
+function loadConfig() {
+    const configString = localStorage.getItem(CONFIG_NAME);
+    if (configString) {
+        config = JSON.parse(configString);
     } else {
-        $("#card").slideUp();
+        saveConfig();
+    }
+}
+function saveConfig() {
+    localStorage.setItem(CONFIG_NAME, JSON.stringify(config));
+}
+function saveSettings(){
+    config.characterName = $("input[name='characterName']")[0].value;
+    config.hpMax = $("input[name='hpMax']")[0].value;
+    config.apMax = $("input[name='apMax']")[0].value;
+    config.level = $("input[name='level']")[0].value;
+    const statSettings =  $("#stat-settings").children();
+    for(let stat of config.stats){
+        for(let setting of statSettings){
+            if(stat.stat == setting.children[1].name){
+                stat.value = setting.children[1].value;
+                break;
+            }
+        }
+    }
+    
+    saveConfig();
+    start();
+}
+function toggleSection(button, id) {
+    if (document.getElementById(id).style.display == "none") {
+        $("section#" + id).slideDown();
+    } else {
+        $("section#" + id).slideUp();
+    }
+    if (button.children[0].id == "angle") {
+        button.children[0].classList.toggle("fa-angle-down");
+        button.children[0].classList.toggle("fa-angle-up");
+    } else {
+        button.classList.toggle("active");
     }
 }
 
-function damage(bar) {
-    document.getElementById(bar+"-bar").value += -1;
+function removeProgress(bar) {
+    const element = document.getElementById(bar + "-bar");
+    if (element.value > 0) {
+        element.value -= 1;
+    }
+    saveBarState(bar, element);
 }
 
-function health(bar) {
-    document.getElementById(bar+"-bar").value += 1;
+function addProgress(bar) {
+    const element = document.getElementById(bar + "-bar");
+    if (element.max != element.value) {
+        element.value += 1;
+    }
+    saveBarState(bar, element);
 }
 
-function showStatContainer(){
+function saveBarState(bar, element) {
+    switch (bar) {
+        case "hp":
+            config.hpCurrent = element.value;
+            break;
+        case "ap":
+            config.apCurrent = element.value;
+            break;
+    }
+    saveConfig();
+}
+
+function showStatContainer() {
     if (document.getElementById("stat-container").style.display == "none") {
-        $("#stat-container").animate({width: 'toggle'});
+        $("#stat-container").animate({ width: 'toggle' });
         $("#moreIcon").removeClass("fa-angle-right");
         $("#moreIcon").addClass("fa-angle-left");
     } else {
-        $("#stat-container").animate({width: 'toggle'});
+        $("#stat-container").animate({ width: 'toggle' });
+        document.getElementById("stat-container").style.display = 'grid';
         $("#moreIcon").removeClass("fa-angle-left");
         $("#moreIcon").addClass("fa-angle-right");
     }

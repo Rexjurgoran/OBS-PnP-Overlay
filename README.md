@@ -1,6 +1,8 @@
 # Pen and Paper overlay for OBS
 Small overlay for displaying Pen and Paper character info with OBS.
 
+If you encounter any errors or miss any features, please open an issue.
+
 
 ## How to include
 * Add a browser source in OBS
@@ -8,6 +10,11 @@ Small overlay for displaying Pen and Paper character info with OBS.
 * Browse to overlay.html
 
 ## How to configure
-* Change constants in properties.js
+* Change attributes of your character in the settings of the overlay
 * Change colours at the top of style.css
+* Change your character icon in the properties.js
 * Possible icons available on https://fontawesome.com/search?m=free&s=solid
+
+## Planned features
+* Export and import config file
+* Character icon selection

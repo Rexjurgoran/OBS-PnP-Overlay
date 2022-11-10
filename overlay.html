@@ -5,36 +5,78 @@
 </head>
 
 <body>
-    <div class="bar" onclick="hideCard()">
-        <div id="class-icon"></div>
-        <h1 id="character-name"></h1>
+    <div class="container">
+        <h2 class="bar">
+            <button onclick="toggleSection(this,'settings')">
+                <i id="gear" class="fa-solid fa-gear button"></i>
+            </button>
+            <div id="class-icon"></div>
+            <span id="character-name"></span>
 
-        <div id="level" style="margin-left: auto;">
-        </div>
+            <div class="level" id="level-number"></div>
 
-    </div>
-    <div id="card" class="card" style="display:none">
-        <div id="bar-container">
-            <div style="display: flex; align-items: center;">
-                <button onclick="health('hp')">
-                    <i class="fa-solid fa-plus button"></i>
-                </button>
-                <progress class="lp" id="hp-bar" onclick="damage('hp')"></progress>
+            <button onclick="toggleSection(this,'card')">
+                <i id="angle" class="fa-solid fa-angle-down button"></i>
+            </button>
+
+        </h2>
+        <section id="card" class="card" style="display:none">
+            <div id="bar-container">
+                <div style="display: flex; align-items: center;">
+                    <button onclick="addProgress('hp')">
+                        <i class="fa-solid fa-plus button"></i>
+                    </button>
+                    <progress class="lp" id="hp-bar" onclick="removeProgress('hp')"></progress>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <button onclick="addProgress('ap')">
+                        <i class="fa-solid fa-plus button"></i>
+                    </button>
+                    <progress class="ap" id="ap-bar" onclick="removeProgress('ap')"></progress>
+                </div>
             </div>
-            <div style="display: flex; align-items: center;">
-                <button onclick="health('ap')">
-                    <i class="fa-solid fa-plus button"></i>
-                </button>
-                <progress class="ap" id="ap-bar" onclick="damage('ap')"></progress>
+            <div id="stat-container" class="stat-container" style="display:none">
             </div>
-        </div>
-        <div id="stat-container" style="display:none">            
-        </div>
-        <button id="more" class="more" onclick="showStatContainer()">
-            <i id="moreIcon"class="fa-solid fa-angle-right button"></i>
-        </button>
+            <button id="more" class="more" onclick="showStatContainer()">
+                <i id="moreIcon" class="fa-solid fa-angle-right button"></i>
+            </button>
+        </section>
+        <section id="settings" style="display:none">
+            <div class='pair'>
+                <label for='characterName'>Character Name</label>
+                <input type='text' name='characterName' value='' style='flex:1;' />
+            </div>
+            <hr>
+            <div class="settings-container">
+                <div class='pair'>
+                    <label for='hpMax'>Maximum HP</label>
+                    <input type='text' name='hpMax' value='' />
+                </div>
+                <div class='pair'>
+                    <label for='apMac'>Maximum AP</label>
+                    <input type='text' name='apMax' value='' />
+                </div>
+                <div class='pair'>
+                    <label for='level'>Level</label>
+                    <input type='text' name='level' value='' />
+                </div>
+            </div>
+            <hr>
+            <div id="stat-settings" class="settings-container">
+            </div>
+            <div style="display: inline-flex; justify-content: center;">
+                <button onclick="saveSettings()">
+                    <i class="fa-solid fa-floppy-disk button"></i>
+                </button>
+                <button>
+                    <i class="fa-solid fa-file-arrow-down button"></i>
+                </button>
+                <button>
+                    <i class="fa-solid fa-file-arrow-up button"></i>
+                </button>
+            </div>
+        </section>
     </div>
-
     <script src="properties.js"></script>
     <script src="scripts.js"></script>
 </body>
