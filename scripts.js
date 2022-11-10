@@ -46,21 +46,21 @@ function loadConfig() {
 function saveConfig() {
     localStorage.setItem(CONFIG_NAME, JSON.stringify(config));
 }
-function saveSettings(){
+function saveSettings() {
     config.characterName = $("input[name='characterName']")[0].value;
     config.hpMax = $("input[name='hpMax']")[0].value;
     config.apMax = $("input[name='apMax']")[0].value;
     config.level = $("input[name='level']")[0].value;
-    const statSettings =  $("#stat-settings").children();
-    for(let stat of config.stats){
-        for(let setting of statSettings){
-            if(stat.stat == setting.children[1].name){
+    const statSettings = $("#stat-settings").children();
+    for (let stat of config.stats) {
+        for (let setting of statSettings) {
+            if (stat.stat == setting.children[1].name) {
                 stat.value = setting.children[1].value;
                 break;
             }
         }
     }
-    
+
     saveConfig();
     start();
 }
