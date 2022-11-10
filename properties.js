@@ -6,30 +6,30 @@ let config = {
     apMax: 26,
     characterName: "Boris Lindor",
     classIcon: "<i class='fa-solid fa-hat-wizard'></i>",
-    stats: stats = [
+    stats: [
         {
-            "stat": "ST",
-            "value": 40
+            stat: "ST",
+            value: 40
         },
         {
-            "stat": "GS",
-            "value": 86
+            stat: "GS",
+            value: 86
         },
         {
-            "stat": "GW",
-            "value": 35
+            stat: "GW",
+            value: 35
         },
         {
-            "stat": "KO",
-            "value": 84
+            stat: "KO",
+            value: 84
         },
         {
-            "stat": "IN",
-            "value": 94
+            stat: "IN",
+            value: 94
         },
         {
-            "stat": "ZT",
-            "value": 96
+            stat: "ZT",
+            value: 96
         }
     ]
 }
