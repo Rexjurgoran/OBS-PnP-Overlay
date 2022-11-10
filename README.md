@@ -12,9 +12,8 @@ If you encounter any errors or miss any features, please open an issue.
 ## How to configure
 * Change attributes of your character in the settings of the overlay
 * Change colours at the top of style.css
-* Change your character icon in the properties.js
 * Possible icons available on https://fontawesome.com/search?m=free&s=solid
 
 ## Planned features
 * Export and import config file
-* Character icon selection
+* More character icon options
