@@ -1,9 +1,9 @@
 :root {
     --background: hsl(0, 0%, 7%);
     --menuBar: rgb(24, 24, 24);
-    --menuBarClear: rgb(24, 24, 24, .5);
+    --menuBarClear: rgb(24, 24, 24, .8);
     --card: rgb(40, 40, 40);
-    --cardClear: rgb(40, 40, 40, .5);
+    --cardClear: rgb(40, 40, 40, .8);
     --primaryText: #ffffff;
     --secondaryText: #b3b3b3;
     --radius: 15px;
@@ -15,7 +15,7 @@
     --apLower: #574005;
     --lpMax: 17;
     --apMax: 26;
-    --fontSize: 80px;
+    --fontSize: 40px;
     --barWidth: calc(var(--lpMax) * var(--fontSize));
     --lpLine: calc(var(--barWidth) / var(--lpMax));
     --apLine: calc(var(--barWidth) / var(--apMax));
@@ -38,7 +38,8 @@ hr {
 body {
     width: fit-content;
     height: fit-content;
-    bottom: 0;
+    bottom: 0.15em;
+    left: 0.15em;
     position: absolute;
     box-shadow: 0px 10px 15px 10px rgba(0, 0, 0, 0.15);
     border: solid 0px;
@@ -209,7 +210,7 @@ section#settings {
 
 label {
     font-size: calc(var(--fontSize)*0.75);
-    width: 450px;
+    width: 225px;
     margin-right: 0.15em;
 }
 
@@ -256,8 +257,8 @@ input:focus-visible {
     margin-top: 0.1em;
     margin-bottom: 0.15em;
     margin-right: 0.15em;
-    height: 80px;
-    width: 80px;
+    height: 40px;
+    width: 40px;
     text-align: center;
     background: linear-gradient(var(--accent), var(--accentLower));
     -webkit-background-clip: text;

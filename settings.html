@@ -1,0 +1,95 @@
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/3e15b1f6e5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="bar" style="justify-content:center;">
+            <span>Settings</span>
+        </h2>
+        <section id="settings">
+            <div class='pair'>
+                <label for='characterName'>Character Name</label>
+                <input type='text' name='characterName' value='' style='flex:1;' oninput="changeSetting(this);" />
+            </div>
+            <hr>
+            <div class="settings-container">
+                <div class='pair'>
+                    <label for='hpMax'>Maximum HP</label>
+                    <input type='text' name='hpMax' value='' oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='apMac'>Maximum AP</label>
+                    <input type='text' name='apMax' value='' oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='level'>Level</label>
+                    <input type='text' name='level' value='' oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='icon'>Icon</label>
+                    <select name='icon' onchange="changeSetting(this);">
+                        <option value="<i class='fa-solid fa-hat-wizard'></i>">
+                            &#xf6e8
+                        </option>
+                        <option value="<i class='fa-solid fa-frog'></i>">
+                            &#xf52e
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div id="color-settings" class="settings-container">
+                <div class='pair'>
+                    <label for='accent'>Accent light</label>
+                    <input class="color" type='color' name='accent' value='#000000' oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='accentLower'>Accent dark</label>
+                    <input class="color" type='color' name='accentLower' value='#000000'
+                        oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='hp'>HP light</label>
+                    <input class="color" type='color' name='hp' value='#000000' oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='hpLower'>HP dark</label>
+                    <input class="color" type='color' name='hpLower' value='#000000' oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='ap'>AP light</label>
+                    <input class="color" type='color' name='ap' value='#000000' oninput="changeSetting(this);" />
+                </div>
+                <div class='pair'>
+                    <label for='apLower'>AP dark</label>
+                    <input class="color" type='color' name='apLower' value='#000000' oninput="changeSetting(this);" />
+                </div>
+            </div>
+            <hr>
+            <div id="stat-settings" class="settings-container">
+            </div>
+            <div style="display: inline-flex; justify-content: center;">
+                <button onclick="downloadConfig()">
+                    <i class="fa-solid fa-file-arrow-down button"></i>
+                </button>
+                <button onclick="uploadConfig(this)">
+                    <i class="fa-solid fa-file-arrow-up button"></i>
+                    <input type="file" name="file" id="file" accept=".json" style="display: none"
+                        onchange="getConfigFromFile(this)">
+                </button>
+                <button onclick="resetConfig()">
+                    <i class="fa-solid fa-rotate-left button"></i>
+                </button>
+                <button onclick="copyTextToClipboard(this)">
+                    <i class="fa-solid fa-clipboard button"></i>
+                </button>
+            </div>
+        </section>
+    </div>
+    <script src="properties.js"></script>
+    <script src="settings.js"></script>
+</body>
