@@ -120,3 +120,32 @@ function showStatContainer() {
         $("#moreIcon").addClass("fa-angle-right");
     }
 }
+function downloadConfig() {
+    let element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(config)));
+    element.setAttribute('download', 'config.json');
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+function uploadConfig(button){
+    button.children[1].click();
+}
+function getConfigFromFile(input){
+    for(let file of input.files){
+        if(file.name.toLowerCase().indexOf(".json") === -1){
+            continue;
+        }
+        let reader = new FileReader();
+        reader.addEventListener("load",() => {
+            config = JSON.parse(reader.result);
+            saveConfig();
+            start();
+        },false);
+        reader.readAsText(file, "UTF-8");
+    }
+    input.files = null;
+}

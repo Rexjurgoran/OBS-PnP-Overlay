@@ -80,11 +80,12 @@
                 <button onclick="saveSettings()">
                     <i class="fa-solid fa-floppy-disk button"></i>
                 </button>
-                <button>
+                <button onclick="downloadConfig()">
                     <i class="fa-solid fa-file-arrow-down button"></i>
                 </button>
-                <button>
+                <button onclick="uploadConfig(this)">
                     <i class="fa-solid fa-file-arrow-up button"></i>
+                    <input type="file" name="file" id="file" style="display: none" onchange="getConfigFromFile(this)">
                 </button>
             </div>
         </section>
