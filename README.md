@@ -16,9 +16,15 @@ If you encounter any errors or miss any features, please open an issue.
 * Set `http:\\absolute\<<PATH_TO_DIRECTORY>>\settings.html` as URL
 
 ## How to configure
-* Change attributes of your character in the settings of the overlay
-* Change colours at the top of style.css
-* Possible icons available on https://fontawesome.com/search?m=free&s=solid
+* Change attributes of your character and UI colors in the settings of the overlay
+* Possible additional icons available on https://fontawesome.com/search?m=free&s=solid
+* Additional icons need to be added in `overlay.html` as additional options like this:
+
+  ```
+  <option value="<i class='fa-solid fa-hat-wizard'></i>">
+      &#xf6e8
+  </option>
+  ```
 
 ## Planned features
 * More character icon options
