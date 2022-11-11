@@ -210,7 +210,7 @@ section#settings {
 
 label {
     font-size: calc(var(--fontSize)*0.75);
-    width: 225px;
+    width: calc(5.625*var(--fontSize));
     margin-right: 0.15em;
 }
 
@@ -257,8 +257,8 @@ input:focus-visible {
     margin-top: 0.1em;
     margin-bottom: 0.15em;
     margin-right: 0.15em;
-    height: 40px;
-    width: 40px;
+    height: var(--fontSize);
+    width: var(--fontSize);
     text-align: center;
     background: linear-gradient(var(--accent), var(--accentLower));
     -webkit-background-clip: text;
