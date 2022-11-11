@@ -7,15 +7,18 @@
     --primaryText: #ffffff;
     --secondaryText: #b3b3b3;
     --radius: 15px;
-    --accent: hsl(225, 73%, 57%);
-    --accentLower: hsl(225, 73%, 37%);
-    --lp: 17;
-    --ap: 26;
+    --accent: #4169e1;
+    --accentLower: #193ca3;
+    --hp: #a62b2b;
+    --hpLower: #551616;
+    --ap: #b7860b;
+    --apLower: #574005;
+    --lpMax: 17;
+    --apMax: 26;
     --fontSize: 80px;
-    --barWidth: calc(var(--lp) * var(--fontSize));
-    ;
-    --lpLine: calc(var(--barWidth) / var(--lp));
-    --apLine: calc(var(--barWidth) / var(--ap));
+    --barWidth: calc(var(--lpMax) * var(--fontSize));
+    --lpLine: calc(var(--barWidth) / var(--lpMax));
+    --apLine: calc(var(--barWidth) / var(--apMax));
 }
 
 html * {
@@ -104,13 +107,13 @@ progress {
 progress.lp::-webkit-progress-value {
     border-radius: var(--radius);
     background:
-        linear-gradient(hsl(0, 59%, 41%), hsl(0, 59%, 21%));
+        linear-gradient(var(--hp), var(--hpLower));
 }
 
 progress.ap::-webkit-progress-value {
     border-radius: var(--radius);
     background:
-        linear-gradient(hsl(43, 89%, 38%), hsl(43, 89%, 18%));
+        linear-gradient(var(--ap), var(--apLower));
 }
 
 progress.lp::-webkit-progress-bar {
@@ -222,6 +225,13 @@ input {
     border-top-right-radius: var(--radius);
 }
 
+input.color {
+    background-color: transparent;
+    width: 3em;
+    border: none;
+    height: .5em;
+}
+
 input:focus {
     border-color: var(--accent);
     border-bottom-width: 2px;
@@ -268,9 +278,10 @@ select {
     cursor: pointer;
 }
 
-select:focus-visible{
+select:focus-visible {
     outline: 0;
 }
+
 select option {
     font-family: "Font Awesome 6 Free", "Arial";
     font-weight: 900;

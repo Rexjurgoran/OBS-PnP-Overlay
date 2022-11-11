@@ -1,4 +1,4 @@
-let config = {
+let defaulConfig = {
     level: 5,
     hpCurrent: 10,
     apCurrent: 10,
@@ -6,6 +6,14 @@ let config = {
     apMax: 26,
     characterName: "Boris Lindor",
     classIcon: "<i class='fa-solid fa-hat-wizard'></i>",
+    colors: {
+        accent: "#4169e1",
+        accentLower: "#193ca3",
+        hp: "#a62b2b",
+        hpLower: "#551616",
+        ap: "#b7860b",
+        apLower: "#574005",
+    },
     stats: [
         {
             stat: "ST",
