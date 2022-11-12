@@ -8,7 +8,12 @@ function init() {
 }
 function start() {
     loadConfig();
+    setSettingValues();
+    setCSSProperties();
+    rebuildStatContainer();
+}
 
+function setSettingValues() {
     $("select[name='icon']")[0].value = config.classIcon;
     $("input[name='characterName']")[0].value = config.characterName;
     $("input[name='hpMax']")[0].value = config.hpMax;
@@ -20,15 +25,21 @@ function start() {
     $("input[name='hpLower']")[0].value = config.colors.hpLower;
     $("input[name='ap']")[0].value = config.colors.ap;
     $("input[name='apLower']")[0].value = config.colors.apLower;
+}
 
+function setCSSProperties() {
     let rootElement = document.querySelector(':root');
+    rootElement.style.setProperty('--lpMax', config.hpMax);
+    rootElement.style.setProperty('--apMax', config.apMax);
     rootElement.style.setProperty('--accent', config.colors.accent);
     rootElement.style.setProperty('--accentLower', config.colors.accentLower);
     rootElement.style.setProperty('--hp', config.colors.hp);
     rootElement.style.setProperty('--hpLower', config.colors.hpLower);
     rootElement.style.setProperty('--ap', config.colors.ap);
     rootElement.style.setProperty('--apLower', config.colors.apLower);
+}
 
+function rebuildStatContainer() {
     let settingsContainer = "";
     for (const pair of config.stats) {
         settingsContainer = settingsContainer +
@@ -38,8 +49,8 @@ function start() {
             "</div>";
     }
     document.getElementById("stat-settings").innerHTML = settingsContainer;
-
 }
+
 function changeSetting(input) {
     switch (input.name) {
         case 'icon':
@@ -84,7 +95,7 @@ function changeSetting(input) {
             }
     };
     saveConfig();
-    start();
+    setCSSProperties();
 }
 function downloadConfig() {
     let element = document.createElement('a');
@@ -123,9 +134,9 @@ function copyTextToClipboard(button) {
         var msg = successful ? 'successful' : 'unsuccessful';
         button.children[0].classList.toggle('fa-clipboard');
         button.children[0].classList.toggle('fa-clipboard-check');
-        const timeout = setTimeout(function(){
+        const timeout = setTimeout(function () {
             button.children[0].classList.toggle('fa-clipboard');
-            button.children[0].classList.toggle('fa-clipboard-check'); 
+            button.children[0].classList.toggle('fa-clipboard-check');
         }, 1000);
     } catch (err) {
         console.log('Oops, unable to copy');
