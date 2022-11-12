@@ -18,6 +18,17 @@ function start() {
     document.getElementById("ap-bar").max = config.apMax;
     document.getElementById("level-number").innerText = config.level;
 
+    setCSSProperties();
+
+    let statContainer = "";
+    for (const pair of config.stats) {
+        statContainer = statContainer + "<div class='pair'><div class='stat'>" + pair.stat + "</div><div class='value'>" + pair.value + "</div></div>"
+    }
+    document.getElementById("stat-container").innerHTML = statContainer;
+
+}
+
+function setCSSProperties() {
     let rootElement = document.querySelector(':root');
     rootElement.style.setProperty('--lpMax', config.hpMax);
     rootElement.style.setProperty('--apMax', config.apMax);
@@ -27,14 +38,8 @@ function start() {
     rootElement.style.setProperty('--hpLower', config.colors.hpLower);
     rootElement.style.setProperty('--ap', config.colors.ap);
     rootElement.style.setProperty('--apLower', config.colors.apLower);
-    
-    let statContainer = "";
-    for (const pair of config.stats) {
-        statContainer = statContainer + "<div class='pair'><div class='stat'>" + pair.stat + "</div><div class='value'>" + pair.value + "</div></div>"
-    }
-    document.getElementById("stat-container").innerHTML = statContainer;
-
 }
+
 function loadConfig() {
     const configString = localStorage.getItem(CONFIG_NAME);
     if (configString) {
