@@ -31,3 +31,6 @@ If you encounter any errors or miss any features, please open an issue.
 
 ## Known errors
 * The download of the configuration does not work at the moment
+
+## Troubleshooting
+* Check if OBS has the newest version
